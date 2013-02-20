@@ -12,13 +12,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("userService")
 public class UserService {
 	private static Logger log = LoggerFactory.getLogger(UserService.class);
 	
 	@Autowired
 	@Qualifier("userDao")
 	private UserDao userDao;
+	
 	
 	public User join(User user) throws ExistedUserException {
 		log.debug("User : {}", user);
@@ -34,7 +35,6 @@ public class UserService {
 	public User update(User user) throws SQLException, PropertyVetoException {
 	    User existedUser = userDao.findByUserId(user.getUserId());
 	    userDao.update(user);
-	    existedUser = userDao.findByUserId(user.getUserId());
 	    return existedUser;
 	}
 

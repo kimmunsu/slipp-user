@@ -49,9 +49,6 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			/WEB-INF/slipp-user-model.xml
-			/WEB-INF/slipp-user-service.xml
-			/WEB-INF/slipp-user-servlet.xml
 		</param-value>
 	</context-param>
 	<servlet>
